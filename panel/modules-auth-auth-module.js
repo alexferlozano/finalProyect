@@ -97,7 +97,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'login', loadChildren: () => Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-login-login-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "ZFij")).then(m => m.LoginModule), canLoad: [src_app_shared_guards_auth_login_guard__WEBPACK_IMPORTED_MODULE_2__["AuthLoginGuard"]] }
+    { path: 'login', loadChildren: () => Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-login-login-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "ZFij")).then(m => m.LoginModule), canLoad: [src_app_shared_guards_auth_login_guard__WEBPACK_IMPORTED_MODULE_2__["AuthLoginGuard"]] },
+    { path: 'register', loadChildren: () => Promise.all(/*! import() | pages-register-register-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-register-register-module")]).then(__webpack_require__.bind(null, /*! ./pages/register/register.module */ "1TiS")).then(m => m.RegisterModule), canLoad: [src_app_shared_guards_auth_login_guard__WEBPACK_IMPORTED_MODULE_2__["AuthLoginGuard"]] }
 ];
 class AuthRoutingModule {
 }

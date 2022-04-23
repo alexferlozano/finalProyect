@@ -38,6 +38,12 @@ class AuthService {
             this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.refreshToken);
         }));
     }
+    onRegister(user) {
+        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_URL}/sign-up`, user)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])((data) => {
+            console.log("data", data);
+        }));
+    }
     onLogOut() {
         this.dataSvc.onRemoveAllCookies();
         this.router.navigate(['/auth/login']);

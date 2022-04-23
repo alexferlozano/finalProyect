@@ -29,8 +29,8 @@ const environment = {
     production: false,
     API_URL: 'https://api.salutemonte.space',
     usingCookies: false,
-    NAME_TOKEN: 'tokenVanko',
-    NAME_REFRESH_TOKEN: 'refreshTokenVanko'
+    NAME_TOKEN: 'token',
+    NAME_REFRESH_TOKEN: 'refreshToken'
 };
 /*
  * For easier debugging in development mode, you can import the following file

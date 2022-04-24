@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"common":"common","modules-main-main-module":"modules-main-main-module","modules-auth-auth-module":"modules-auth-auth-module","pages-announcement-announcement-module":"pages-announcement-announcement-module","pages-article-article-module":"pages-article-article-module","pages-company-company-module":"pages-company-company-module","pages-offers-offers-module":"pages-offers-offers-module","pages-service-service-module":"pages-service-service-module","pages-store-store-module":"pages-store-store-module","pages-user-user-module":"pages-user-user-module","pages-appointment-appointment-module":"pages-appointment-appointment-module","pages-login-login-module":"pages-login-login-module","pages-register-register-module":"pages-register-register-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"common":"common","modules-main-main-module":"modules-main-main-module","modules-auth-auth-module":"modules-auth-auth-module","pages-company-company-module":"pages-company-company-module","pages-user-user-module":"pages-user-user-module","pages-confirmcode-confirmcode-module":"pages-confirmcode-confirmcode-module","pages-login-login-module":"pages-login-login-module","pages-register-register-module":"pages-register-register-module","pages-waitphone-waitphone-module":"pages-waitphone-waitphone-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

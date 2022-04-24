@@ -32,10 +32,10 @@ class AuthService {
     onLogIn(user) {
         return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_URL}/login`, user)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])((data) => {
-            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.token);
-            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.refreshToken);
-            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.token);
-            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.refreshToken);
+            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
+            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.refreshToken);
+            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
+            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.token);
         }));
     }
     onRegister(user) {
@@ -57,138 +57,6 @@ AuthService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjec
                 providedIn: 'root'
             }]
     }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }, { type: _data_service__WEBPACK_IMPORTED_MODULE_4__["DataService"] }, { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "6Mz/":
-/*!****************************************************************************!*\
-  !*** ./src/app/modules/main/pages/service/services/subcategory.service.ts ***!
-  \****************************************************************************/
-/*! exports provided: SubcategoryService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SubcategoryService", function() { return SubcategoryService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "AytR");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-
-
-
-
-class SubcategoryService {
-    constructor(http) {
-        this.http = http;
-    }
-    showSubcategories() {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/service-subcategories`);
-    }
-    createSubCategorie(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/service-subcategories`, data);
-    }
-    updateSubcategory(data) {
-        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/service-subcategories/${data.id}`, data);
-    }
-}
-SubcategoryService.ɵfac = function SubcategoryService_Factory(t) { return new (t || SubcategoryService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-SubcategoryService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: SubcategoryService, factory: SubcategoryService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](SubcategoryService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "Bcon":
-/*!********************************************************************!*\
-  !*** ./src/app/modules/main/pages/store/services/store.service.ts ***!
-  \********************************************************************/
-/*! exports provided: StoreService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreService", function() { return StoreService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "AytR");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-
-
-
-
-class StoreService {
-    constructor(http) {
-        this.http = http;
-    }
-    showStores() {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/stores`);
-    }
-    createStore(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/stores`, data);
-    } //
-    updateStore(data) {
-        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/stores/${data.id}`, data);
-    }
-}
-StoreService.ɵfac = function StoreService_Factory(t) { return new (t || StoreService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-StoreService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: StoreService, factory: StoreService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](StoreService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "drIk":
-/*!******************************************************************!*\
-  !*** ./src/app/modules/main/pages/user/services/user.service.ts ***!
-  \******************************************************************/
-/*! exports provided: UserService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "AytR");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-
-
-
-
-class UserService {
-    constructor(http) {
-        this.http = http;
-    }
-    showUsers() {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/users`);
-    }
-    createSingleUser(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/users/single`, data);
-    }
-    updateUser(data) {
-        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/users/${data.id}`, data);
-    }
-    createManyUsers(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/users/many`, data);
-    }
-}
-UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](UserService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
 
 /***/ }),
@@ -215,13 +83,17 @@ class CompanyService {
         this.http = http;
     }
     showCompanies() {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/enterprises`);
+        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/memes/`);
     }
     createCompanie(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/enterprises`, data);
+        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/memes/`, data);
     }
     updateCompany(data) {
-        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/enterprises/${data.id}`, data);
+        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/memes/${data.id}`, data);
+    }
+    deleteMeme(id, token) {
+        //return this.http.delete<MemeRes>(`${environment.API_URL}/memes/${data.id}`, token, {observe: 'response'});
+        return this.http.request('delete', `${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/memes/${id}`, { body: token });
     }
 }
 CompanyService.ɵfac = function CompanyService_Factory(t) { return new (t || CompanyService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
@@ -270,58 +142,6 @@ NotificationService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
                 providedIn: 'root'
             }]
     }], function () { return [{ type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_1__["MatSnackBar"] }, { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }]; }, null); })();
-
-
-/***/ }),
-
-/***/ "xHJk":
-/*!************************************************************************!*\
-  !*** ./src/app/modules/main/pages/service/services/service.service.ts ***!
-  \************************************************************************/
-/*! exports provided: ServiceService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ServiceService", function() { return ServiceService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var src_environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/environments/environment */ "AytR");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "IheW");
-
-
-
-
-class ServiceService {
-    constructor(http) {
-        this.http = http;
-    }
-    showServicesStore() {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/store-services`);
-    }
-    createServiceStore(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/store-services`, data);
-    }
-    updateServiceStore(data, id) {
-        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/store-services/` + id, data);
-    }
-    showServices() {
-        return this.http.get(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/services`);
-    }
-    createService(data) {
-        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/services`, data);
-    }
-    updateService(data) {
-        return this.http.patch(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].API_URL}/v1/services/${data.id}`, data);
-    }
-}
-ServiceService.ɵfac = function ServiceService_Factory(t) { return new (t || ServiceService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-ServiceService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ServiceService, factory: ServiceService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ServiceService, [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return [{ type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }]; }, null); })();
 
 
 /***/ })

@@ -28,6 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     API_URL: 'https://api.salutemonte.space',
+    //API_URL: 'http://127.0.0.1:3333',
     usingCookies: false,
     NAME_TOKEN: 'token',
     NAME_REFRESH_TOKEN: 'refreshToken'

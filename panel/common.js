@@ -32,10 +32,28 @@ class AuthService {
     onLogIn(user) {
         return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_URL}/login`, user)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])((data) => {
-            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
-            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.refreshToken);
-            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
-            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.token);
+            if (data.data.accessToken != null) {
+                localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
+                localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.refreshToken);
+                this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
+                this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.token);
+            }
+            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].USER, JSON.stringify(data.data.user));
+            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].USER, JSON.stringify(data.data.user));
+        }));
+    }
+    onVerificate(user) {
+        return this.http.post(`${src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].API_URL}/two-factor`, user)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])((data) => {
+            console.log('Data', data);
+            if (data.data.accessToken != null) {
+                localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
+                localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.refreshToken);
+                this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_TOKEN, data.data.accessToken.token);
+                this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].NAME_REFRESH_TOKEN, data.data.accessToken.token);
+            }
+            localStorage.setItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].USER, JSON.stringify(data.data.user));
+            this.dataSvc.onSaveCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].USER, JSON.stringify(data.data.user));
         }));
     }
     onRegister(user) {

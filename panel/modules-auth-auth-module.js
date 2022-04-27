@@ -147,7 +147,8 @@ class AuthLoginGuard {
     }
     canLoad() {
         const onIsLoggedIn = localStorage.getItem(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].NAME_TOKEN) ? true : false;
-        if (onIsLoggedIn) {
+        const onIsLoggedIn2 = this.dataSvc.onGetCookie(src_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].NAME_TOKEN) ? true : false;
+        if (onIsLoggedIn || onIsLoggedIn2) {
             this.router.navigate(['/panel/empresas']);
         }
         return !onIsLoggedIn;

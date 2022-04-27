@@ -147,13 +147,13 @@ class LoginComponent {
         }
         this.setAuthData();
         this.authService.onLogIn(this.userData).subscribe((data) => {
-            console.log("pog");
-            if (data.data.user.role_id == 3) {
+            //console.log("pog")
+            if (data.data.user.role_id == 3 && data.data.accessToken != null) {
                 this.router.navigate(['panel/empresas']);
             }
             else if (data.data.user.role_id == 2 || data.data.user.role_id == 1) {
                 console.log("User", data.data.user);
-                this.router.navigate(['auth/confirm_code']);
+                this.router.navigate(['auth/confirm_code'], { state: { password: this.userData.password } });
             }
         }, error => {
             console.log(error);

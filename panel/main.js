@@ -28,10 +28,13 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     API_URL: 'https://api.salutemonte.space',
+    WS_URL: 'ws://api.salutemonte.space',
     //API_URL: 'http://127.0.0.1:3333',
+    //WS_URL: 'ws://127.0.0.1:3333',
     usingCookies: false,
     NAME_TOKEN: 'token',
-    NAME_REFRESH_TOKEN: 'refreshToken'
+    NAME_REFRESH_TOKEN: 'refreshToken',
+    USER: 'user'
 };
 /*
  * For easier debugging in development mode, you can import the following file
